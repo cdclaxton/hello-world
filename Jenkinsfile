@@ -9,7 +9,6 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                deleteDir()
                 sh 'mvn clean package'
             }
         }
@@ -17,6 +16,12 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'java -cp target/*.jar com.github.cdclaxton.Main'
+            }
+        }
+
+        stage('Clean') {
+            steps {
+                deleteDir()
             }
         }
     }
