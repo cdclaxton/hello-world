@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
+                deleteDir()
                 sh 'mvn clean package'
             }
         }
