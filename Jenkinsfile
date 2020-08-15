@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'Special greeting')
+    }
+
     stages {
         stage('Hello') {
             steps {
