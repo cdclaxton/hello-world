@@ -12,5 +12,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+        stage('Run') {
+            steps {
+                sh 'java -cp target/*.jar com.github.cdclaxton.Main'
+            }
+        }
     }
 }
