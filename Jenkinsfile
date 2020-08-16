@@ -19,9 +19,12 @@ pipeline {
             }
         }
 
-        stage('Clean') {
+        stage('Release') {
+            when {
+                branch 'master'
+            }
             steps {
-                deleteDir()
+                echo "Running release for master branch"
             }
         }
     }
