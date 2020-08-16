@@ -25,6 +25,9 @@ pipeline {
             }
             steps {
                 echo "Running release for master branch"
+                withCredentials([usernamePassword(credentialsId: 'Github-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                  echo "username is $USERNAME"
+                }
             }
         }
     }
