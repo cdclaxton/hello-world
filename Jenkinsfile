@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo "Checking out branch ${branch}"
+                echo "Checking out branch ${env.BRANCH_NAME}"
                 git branch: "${env.BRANCH_NAME}", credentialsId: 'Github-login', url: 'https://github.com/cdclaxton/hello-world.git'
             }
         }
