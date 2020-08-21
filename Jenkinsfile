@@ -43,7 +43,17 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Archive release') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo "Archiving build"
+                archiveArtifacts 'target/*-jar-with-dependencies.jar'
+            }
+        }
+
+        stage('Deploy release') {
             when {
                 branch 'master'
             }
