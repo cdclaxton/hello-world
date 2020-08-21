@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo "Checking out branch ${branch}"
                 git branch: "${branch}", url: "https://github.com/cdclaxton/hello-world.git"
             }
         }
