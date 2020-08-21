@@ -41,15 +41,11 @@ pipeline {
                   sh "mvn --batch-mode release:perform -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
                 }
             }
-        }
-
-        stage('Archive release') {
-            when {
-                branch 'master'
-            }
-            steps {
-                echo "Archiving build"
-                archiveArtifacts 'target/*[!SNAPSHOT]-jar-with-dependencies.jar'
+            post {
+                success {
+                    echo "Archiving build"
+                    archiveArtifacts '**/target/*[!SNAPSHOT]-jar-with-dependencies.jar'
+                }
             }
         }
 
