@@ -49,7 +49,7 @@ pipeline {
             }
             steps {
                 echo "Archiving build"
-                archiveArtifacts 'target/*-jar-with-dependencies.jar'
+                archiveArtifacts 'target/*[!SNAPSHOT]-jar-with-dependencies.jar'
             }
         }
 
