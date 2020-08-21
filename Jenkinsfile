@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                echo "Checking out branch ${scm.branch}"
+                echo "Checking out branch ${env.BRANCH_NAME}"
             }
         }
     }
