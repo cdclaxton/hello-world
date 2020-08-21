@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+        stage('Checkout') {
+            steps {
+                git branch: "${branch}", url: "https://github.com/cdclaxton/hello-world.git"
+            }
+        }
+
         stage('Compile') {
             steps {
                 sh 'mvn clean package'
@@ -33,6 +39,15 @@ pipeline {
                   echo "Performing release ..."
                   sh "mvn --batch-mode release:perform -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
                 }
+            }
+        }
+
+        stage('Deploy') {
+            when {
+                branch 'master'
+            }
+            steps {
+                echo "Deploying the software ..."
             }
         }
     }
