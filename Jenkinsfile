@@ -34,11 +34,14 @@ pipeline {
                 echo "Running release for master branch"
                 withCredentials([usernamePassword(credentialsId: 'Github-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-                  echo "Preparing release ..."
-                  sh "mvn --batch-mode release:prepare -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
+                    echo "Performing a dry-run of the release ..."
+                    sh "mvn --batch-mode release:prepare -DdryRun=true -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
 
-                  echo "Performing release ..."
-                  sh "mvn --batch-mode release:perform -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
+                    echo "Preparing release ..."
+                    sh "mvn --batch-mode release:prepare -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
+
+                    echo "Performing release ..."
+                    sh "mvn --batch-mode release:perform -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
                 }
             }
             post {
