@@ -47,7 +47,7 @@ pipeline {
             post {
                 success {
                     echo "Archiving build"
-                    archiveArtifacts '**/target/*[!SNAPSHOT]-jar-with-dependencies.jar'
+                    archiveArtifacts artifacts: 'target/*-jar-with-dependencies.jar' excludes: 'target/*SNAPSHOT*-jar-with-dependencies.jar'
                 }
             }
         }
