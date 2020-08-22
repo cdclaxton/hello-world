@@ -10,9 +10,9 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Cleaning the workspace ..."
-                wsCleanup()
+                cleanWs()
 
-                echo "Checking out branch ${env.BRANCH_NAME}"
+                echo "Checking out branch: ${env.BRANCH_NAME}"
                 git branch: "${env.BRANCH_NAME}", credentialsId: 'Github-login', url: 'https://github.com/cdclaxton/hello-world.git'
             }
         }
