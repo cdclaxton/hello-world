@@ -9,6 +9,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                echo "Cleaning the workspace ..."
+                wsCleanup()
+
                 echo "Checking out branch ${env.BRANCH_NAME}"
                 git branch: "${env.BRANCH_NAME}", credentialsId: 'Github-login', url: 'https://github.com/cdclaxton/hello-world.git'
             }
@@ -33,8 +36,6 @@ pipeline {
             steps {
                 echo "Running release for master branch"
                 withCredentials([usernamePassword(credentialsId: 'Github-login', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-
-
 
                     echo "Preparing release ..."
                     sh "mvn --batch-mode release:prepare -Dusername=${USERNAME} -Dpassword=${PASSWORD}"
