@@ -16,8 +16,8 @@
         <moduleSet>
             <useAllReactorProjects>true</useAllReactorProjects>
             <includes>
-                <include>*:backend</include>
-                <include>*:frontend</include>
+                <include>*:hello-world-backend</include>
+                <include>*:hello-world-frontend</include>
             </includes>
             <binaries>
                 <outputDirectory>classes</outputDirectory>
