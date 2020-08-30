@@ -23,7 +23,7 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                             <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-                            <mainClass>com.github.cdclaxton.Main</mainClass>
+                            <mainClass>com.github.cdclaxton.Frontend</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
