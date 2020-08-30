@@ -8,8 +8,7 @@ public class FrontendTest {
 
     @Test
     public void testGetMessage() {
-        Frontend frontend = new Frontend();
-        assertEquals("Hello, World!", frontend.getMessageFromBackend());
+        assertEquals("Hello, World!", Frontend.getMessageFromBackend());
     }
 
 }
