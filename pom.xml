@@ -4,7 +4,7 @@
 
     <groupId>com.github.cdclaxton</groupId>
     <artifactId>hello-world</artifactId>
-    <version>1.8-SNAPSHOT</version>
+    <version>1.8</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -24,7 +24,8 @@
         <connection>scm:git:https://github.com/cdclaxton/hello-world.git</connection>
         <url>https://github.com/cdclaxton/hello-world.git</url>
         <developerConnection>scm:git:https://github.com/cdclaxton/hello-world.git</developerConnection>
-    </scm>
+      <tag>1.9</tag>
+  </scm>
 
     <build>
         <plugins>
