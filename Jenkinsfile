@@ -25,7 +25,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'java -jar target/*.jar'
+                sh 'java -jar frontend/target/*-jar-with-dependencies.jar'
             }
         }
 
@@ -47,7 +47,8 @@ pipeline {
             post {
                 success {
                     echo "Archiving build"
-                    archiveArtifacts artifacts: 'target/*-jar-with-dependencies.jar', excludes: 'target/*SNAPSHOT*-jar-with-dependencies.jar'
+                    archiveArtifacts artifacts: 'frontend/target/*-jar-with-dependencies.jar',
+                        excludes: 'frontend/target/*SNAPSHOT*-jar-with-dependencies.jar'
                 }
             }
         }
